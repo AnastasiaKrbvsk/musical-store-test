@@ -21,9 +21,8 @@ const Product = sequelize.define('product', {
     id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
     name: {type: DataTypes.STRING, unique: true, allowNull: false},
     price: {type: DataTypes.INTEGER, allowNull: false},
-    image: {type: DataTypes.INTEGER, allowNull: false},
-    number: {type: DataTypes.INTEGER},
-    availability: {type: DataTypes.BOOLEAN}
+    image: {type: DataTypes.STRING, allowNull: false},
+    number: {type: DataTypes.INTEGER, allowNull: false},
 });
 
 const Category = sequelize.define('category', {
@@ -52,7 +51,11 @@ const OrderProduct = sequelize.define('order_product', {
 });
 
 const UserDetails = sequelize.define('user_details', {
-    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true}
+    id: {type: DataTypes.INTEGER, primaryKey: true, autoIncrement: true},
+    full_name: {type: DataTypes.STRING, allowNull: false},
+    city: {type: DataTypes.STRING, allowNull: false},
+    phone: {type: DataTypes.STRING, allowNull: false},
+    address: {type: DataTypes.STRING, allowNull: false}
 });
 
 User.hasOne(Basket);
